@@ -45,3 +45,21 @@ if(!file.exists("getdata-projectfiles-UCI HAR Dataset.zip")) {
 
 data <- read.csv("activity.csv")
 ```
+
+
+## What is mean total number of steps taken per day?
+Sum steps by day, create Histogram, and calculate mean and median.
+
+```r
+steps_by_day <- aggregate(steps ~ date, data, sum)
+hist(steps_by_day$steps, main = paste("Total Steps Each Day"), col="blue", xlab="Number of Steps")
+```
+
+![plot of chunk unnamed-chunk-2](./RepData_PeerAssessment1/blob/master/pic2.png) 
+
+```r
+rmean <- mean(steps_by_day$steps)
+rmedian <- median(steps_by_day$steps)
+```
+
+The `mean` is 1.0766 &times; 10<sup>4</sup> and the `median` is 10765.
